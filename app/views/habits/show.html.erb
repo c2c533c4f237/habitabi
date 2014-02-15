@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @habit.type %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @habit.action %>
+</p>
+
+<p>
+  <strong>Object:</strong>
+  <%= @habit.object %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @habit.count %>
+</p>
+
+<p>
+  <strong>Measurement:</strong>
+  <%= @habit.measurement %>
+</p>
+
+<p>
+  <strong>Measurement type:</strong>
+  <%= @habit.measurement_type %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @habit.quantity %>
+</p>
+
+<p>
+  <strong>Quantity type:</strong>
+  <%= @habit.quantity_type %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @habit.tags %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @habit.description %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @habit.time %>
+</p>
+
+<%= link_to 'Edit', edit_habit_path(@habit) %> |
+<%= link_to 'Back', habits_path %>

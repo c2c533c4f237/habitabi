@@ -1,0 +1,61 @@
+<%= form_for(@habit) do |f| %>
+  <% if @habit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@habit.errors.count, "error") %> prohibited this habit from being saved:</h2>
+
+      <ul>
+      <% @habit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :action %><br>
+    <%= f.text_field :action %>
+  </div>
+  <div class="field">
+    <%= f.label :object %><br>
+    <%= f.text_field :object %>
+  </div>
+  <div class="field">
+    <%= f.label :count %><br>
+    <%= f.text_field :count %>
+  </div>
+  <div class="field">
+    <%= f.label :measurement %><br>
+    <%= f.text_field :measurement %>
+  </div>
+  <div class="field">
+    <%= f.label :measurement_type %><br>
+    <%= f.text_field :measurement_type %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity_type %><br>
+    <%= f.text_field :quantity_type %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.date_select :time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  action: MyString
+  object: MyString
+  count: 1.5
+  measurement: 1.5
+  measurement_type: MyString
+  quantity: 1.5
+  quantity_type: MyString
+  tags: MyString
+  description: MyText
+  time: 2014-02-15
+
+two:
+  type: 1
+  action: MyString
+  object: MyString
+  count: 1.5
+  measurement: 1.5
+  measurement_type: MyString
+  quantity: 1.5
+  quantity_type: MyString
+  tags: MyString
+  description: MyText
+  time: 2014-02-15
