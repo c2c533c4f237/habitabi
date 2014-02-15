@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215203518) do
+ActiveRecord::Schema.define(version: 20140215215413) do
 
   create_table "habits", force: true do |t|
-    t.integer  "type"
+    t.integer  "habit_type"
     t.string   "action"
     t.string   "object"
     t.float    "count"
