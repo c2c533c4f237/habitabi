@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215215413) do
+ActiveRecord::Schema.define(version: 20140215222003) do
 
   create_table "habits", force: true do |t|
     t.integer  "habit_type"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140215215413) do
     t.string   "quantity_type"
     t.string   "tags"
     t.text     "description"
-    t.date     "time"
+    t.datetime "time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
