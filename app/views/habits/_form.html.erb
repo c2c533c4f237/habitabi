@@ -16,12 +16,21 @@
     <%= f.number_field :habit_type %>
   </div>
   <div class="field">
-    <%= f.label :action %><br>
-    <%= f.text_field :action %>
+  <%= f.label :action %>
+  <%= f.collection_select( :action_id,
+              Action.all,
+              :id, :name, {selected: @habit.action_id, include_blank: false}) %>
   </div>
   <div class="field">
-    <%= f.label :object %><br>
-    <%= f.text_field :object %>
+  <%= f.label :value %>
+  <%= f.collection_select( :value_id,
+              Value.all,
+              :id, :name, {selected: @habit.value_id, include_blank: false}) %>
+  </div>
+  <div class="field">
+  <% f.fields_for :value do |val_f| %>
+    value : <%= val_f.text_field :name %>
+  <% end %>
   </div>
   <div class="field">
     <%= f.label :count %><br>

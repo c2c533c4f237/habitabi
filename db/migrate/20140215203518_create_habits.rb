@@ -2,8 +2,6 @@ class CreateHabits < ActiveRecord::Migration
   def change
     create_table :habits do |t|
       t.integer :habit_type
-      t.string :action
-      t.string :object
       t.float :count
       t.float :measurement
       t.string :measurement_type
@@ -12,6 +10,9 @@ class CreateHabits < ActiveRecord::Migration
       t.string :tags
       t.text :description
       t.datetime :time
+
+      t.integer :action_id
+      t.integer :value_id
 
       t.timestamps
     end
