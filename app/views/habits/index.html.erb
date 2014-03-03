@@ -24,8 +24,8 @@
     <% @habits.each do |habit| %>
       <tr>
         <td><%= habit.habit_type %></td>
-        <td><%= habit.action.name %></td>
-        <td><%= habit.value.name %></td>
+        <td><%= action_name habit %></td>
+        <td><%= value_name habit %></td>
         <td><%= habit.count %></td>
         <td><%= habit.measurement %></td>
         <td><%= habit.measurement_type %></td>
