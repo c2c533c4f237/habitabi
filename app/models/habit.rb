@@ -23,4 +23,8 @@ class Habit < ActiveRecord::Base
 		where(habit_type: 4)
 	end
 	
+	validates :habit_type, presence: true
+	validates :habit_type, inclusion: { in: 0..4 }
+	
+	
 end
