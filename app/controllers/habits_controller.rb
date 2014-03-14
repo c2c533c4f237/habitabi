@@ -1,4 +1,5 @@
 class HabitsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_action :set_habit, only: [:show, :edit, :update, :destroy]
 
   # GET /habits

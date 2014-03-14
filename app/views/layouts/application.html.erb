@@ -71,9 +71,13 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
+          <% if user_signed_in? %>
+            You are logged in as: <%= current_user.email %>
+            <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Log In', new_user_session_path %>
+          <% end %>
           <%= bootstrap_flash %>
-           <p class="notice"><%= notice %></p>
-           <p class="alert"><%= alert %></p>
           <%= yield %>
         </div>
       </div><!--/row-->
