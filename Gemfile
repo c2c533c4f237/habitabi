@@ -5,6 +5,8 @@ gem 'rails', '4.0.2'
 
 gem 'devise'
 
+gem "select2-rails"
+
 group :production do
   gem 'pg'
 end

@@ -6,6 +6,8 @@ class HabitsController < ApplicationController
   # GET /habits.json
   def index
     @habits = Habit.all
+    @actions = Action.all
+    @values = Value.all
   end
 
   # GET /habits/1
@@ -16,6 +18,8 @@ class HabitsController < ApplicationController
   # GET /habits/new
   def new
     @habit = Habit.new
+    @actions = Action.all
+    @values = Value.all
     @action =  @habit.build_action
     @value = @habit.build_value
   end
