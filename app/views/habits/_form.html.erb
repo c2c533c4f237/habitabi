@@ -16,16 +16,12 @@
     <%= f.number_field :habit_type %>
   </div>
   <div class="field">
-  <%= f.label :action %>
-  <%= f.collection_select( :action_id,
-              Action.all,
-              :id, :name, {selected: @habit.action_id, include_blank: false}) %>
-  </div>
-  <div class="field">
-  <%= f.label :value %>
-  <%= f.collection_select( :value_id,
-              Value.all,
-              :id, :name, {selected: @habit.value_id, include_blank: false}) %>
+  <%= f.fields_for :action do |t| %>
+       <%= t.text_field :name %>
+   <% end %>
+     <%= f.fields_for :value do |t| %>
+       <%= t.text_field :name %>
+   <% end %>
   </div>
   <div class="field">
   <% f.fields_for :value do |val_f| %>
@@ -64,6 +60,7 @@
     <%= f.label :time %><br>
     <%= f.date_select :time %>
   </div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>

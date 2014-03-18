@@ -2,7 +2,8 @@ class Habit < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :value
 	belongs_to :action
-	
+		accepts_nested_attributes_for :value
+			accepts_nested_attributes_for :action
 	def self.categoricals
 		where(habit_type: 0)
 	end

@@ -16,6 +16,8 @@ class HabitsController < ApplicationController
   # GET /habits/new
   def new
     @habit = Habit.new
+    @action =  @habit.build_action
+    @value = @habit.build_value
   end
 
   # GET /habits/1/edit
@@ -26,6 +28,8 @@ class HabitsController < ApplicationController
   # POST /habits.json
   def create
     @habit = Habit.new(habit_params)
+    @action = @habit.create_action(habit_params[:action_attributes])
+    @value = @habit.create_value(habit_params[:value_attributes])
 
     respond_to do |format|
       if @habit.save
@@ -70,6 +74,8 @@ class HabitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:habit_type, :action_id, :value_id, :count, :measurement, :measurement_type, :quantity, :quantity_type, :tags, :description, :time)
+      params.require(:habit).permit(:habit_type, :action_id, :value_id, :user_id, :count, :measurement, :measurement_type, :quantity, :quantity_type, :tags, :description, :time, value_attributes:[:name], action_attributes:[:name])
+    #  params.require(:action).permit(:name)
+    # params.require(:value_attributes).permit(:name)
     end
 end
