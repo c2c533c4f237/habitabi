@@ -6,6 +6,8 @@ class HabitsController < ApplicationController
   # GET /habits.json
   def index
     @habits = Habit.all
+    @actions = Action.all
+    @values = Value.all
   end
 
   # GET /habits/1
@@ -16,6 +18,8 @@ class HabitsController < ApplicationController
   # GET /habits/new
   def new
     @habit = Habit.new
+    @actions = Action.all
+    @values = Value.all
     @action =  @habit.build_action
     @value = @habit.build_value
   end
@@ -28,8 +32,6 @@ class HabitsController < ApplicationController
   # POST /habits.json
   def create
     @habit = Habit.new(habit_params)
-    @action = @habit.create_action(habit_params[:action_attributes])
-    @value = @habit.create_value(habit_params[:value_attributes])
 
     respond_to do |format|
       if @habit.save

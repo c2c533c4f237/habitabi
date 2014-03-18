@@ -9,6 +9,8 @@ Habitabi::Application.routes.draw do
   # You can have the root of your site routed with "root"
  root 'welcome#index'
 
+ get "actions_json" => "actions#autocomplete_action_name"
+ get "values_json" => "values#autocomplete_value_name"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

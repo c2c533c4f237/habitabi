@@ -4,6 +4,4 @@ class Action < ActiveRecord::Base
 
 	validates :name, presence: true
 
-	validates_associated :habits
-	validates_associated :values
 end

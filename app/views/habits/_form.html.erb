@@ -1,3 +1,62 @@
+<%= javascript_tag do %>
+
+
+$(document).ready(function() {  
+  $('.inselect2').each(function() {
+    var url = $(this).data('url'); 
+    var placeholder = $(this).data('placeholder'); 
+    $(this).select2({
+      width: '200px',
+      minimumInputLength: 0,
+      placeholder : placeholder,
+      allowClear: true,
+      id: function (item) {
+       return item.name;
+     },
+     selectOnBlur: true,
+      ajax: {
+        url: url,
+        dataType: 'json',
+        quietMillis: 500,
+        data: function (term) {
+          return {
+            name: term
+          };
+        },
+        results: function (data) {
+          return {results: data};
+        }
+      },
+
+      formatResult: function (item) {
+        return item.name; 
+      },
+
+      formatSelection: function (item) {
+        return item.name; 
+      },
+
+      initSelection : function (element, callback) {
+        if (saved) {
+          callback(saved);
+        }
+      },
+      
+      createSearchChoice:function(term, data) {
+             if ( $(data).filter( function() {
+               return this.name.localeCompare(term)===0;
+             }).length===0) {
+               return {id:term, name:term};
+             }
+           }
+
+    });
+  });
+});
+
+<% end %>
+
+
 <%= form_for(@habit) do |f| %>
   <% if @habit.errors.any? %>
     <div id="error_explanation">
@@ -17,15 +76,19 @@
   </div>
   <div class="field">
   <%= f.fields_for :action do |t| %>
-       <%= t.text_field :name %>
-   <% end %>
-     <%= f.fields_for :value do |t| %>
-       <%= t.text_field :name %>
-   <% end %>
-  </div>
-  <div class="field">
-  <% f.fields_for :value do |val_f| %>
-    value : <%= val_f.text_field :name %>
+      <%= t.text_field :name,      
+      data: { 
+        placeholder: "Enter an action",
+        url: actions_json_path
+      }, class: "inselect2"  %>
+  <% end %>
+  <%= f.fields_for :value do |t| %>
+      <%= t.text_field :name, 
+     data: { 
+        placeholder: "Enter a value",
+        url: values_json_path
+      },
+        class: "inselect2"  %>
   <% end %>
   </div>
   <div class="field">
