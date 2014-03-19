@@ -26,6 +26,10 @@ class Habit < ActiveRecord::Base
 	def self.amounts
 		where(habit_type: 4)
 	end
+
+	def self.by_user id
+		where(user_id: id)
+    end
 	
 	validates :habit_type, presence: true
 	validates :habit_type, inclusion: { in: 0..4 }
@@ -33,7 +37,7 @@ class Habit < ActiveRecord::Base
 	protected
 
 	def check_action(action_attr)
-		if _action = Action.where("name = '#{action_attr[:name]}'").first
+		if _action = Action.where("name = '#{action_attr[:name]}' AND user_id = #{action_attr[:user_id]}").first
 			self.action = _action
 			self.action_id = _action.id
 			return true
@@ -42,7 +46,7 @@ class Habit < ActiveRecord::Base
 	end
 
 	def check_value(value_attr)
-		if _value = Value.where("name = '#{value_attr[:name]}'").first
+		if _value = Value.where("name = '#{value_attr[:name]}' AND user_id = #{value_attr[:user_id]}").first
 			self.value = _value
 			self.value_id = _value.id
 			return true

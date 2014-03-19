@@ -4,4 +4,11 @@ class Action < ActiveRecord::Base
 
 	validates :name, presence: true
 
+	belongs_to :user
+
+	def self.by_user id
+		where(user_id: id)
+    end
+	
+
 end

@@ -5,9 +5,9 @@ class HabitsController < ApplicationController
   # GET /habits
   # GET /habits.json
   def index
-    @habits = Habit.all
-    @actions = Action.all
-    @values = Value.all
+    @habits = Habit.by_user(current_user)
+    @actions = Action.by_user(current_user)
+    @values = Value.by_user(current_user)
   end
 
   # GET /habits/1
@@ -18,8 +18,8 @@ class HabitsController < ApplicationController
   # GET /habits/new
   def new
     @habit = Habit.new
-    @actions = Action.all
-    @values = Value.all
+    @actions = Action.by_user(current_user)
+    @values = Value.by_user(current_user)
     @action =  @habit.build_action
     @value = @habit.build_value
   end
@@ -71,13 +71,11 @@ class HabitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_habit
-      @habit = Habit.find(params[:id])
+      @habit = Habit.find(params[:id], conditions: ["user_id = ?", current_user])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habit_params
-      params.require(:habit).permit(:habit_type, :action_id, :value_id, :user_id, :count, :measurement, :measurement_type, :quantity, :quantity_type, :tags, :description, :time, value_attributes:[:name], action_attributes:[:name])
-    #  params.require(:action).permit(:name)
-    # params.require(:value_attributes).permit(:name)
+      params.require(:habit).permit(:habit_type, :action_id, :value_id, :user_id, :count, :measurement, :measurement_type, :quantity, :quantity_type, :tags, :description, :time, value_attributes:[:name, :user_id], action_attributes:[:name, :user_id])
     end
 end
