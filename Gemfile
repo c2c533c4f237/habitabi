@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter' 
 
 gem "select2-rails"
 
