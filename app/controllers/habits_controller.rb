@@ -71,7 +71,7 @@ class HabitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_habit
-      @habit = Habit.find(params[:id], conditions: ["user_id = ?", current_user])
+      @habit = Habit.friendly.find(params[:id], conditions: ["user_id = ?", current_user])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

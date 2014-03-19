@@ -1,4 +1,14 @@
 class Habit < ActiveRecord::Base
+	extend FriendlyId
+    friendly_id :slug_candidates, use: :slugged
+
+    def slug_candidates
+    	[
+    		[self.action.name, self.value.name]
+    		#add more once I figure things out.
+    	]
+    end
+
 	belongs_to :user
 	belongs_to :value
 	belongs_to :action
