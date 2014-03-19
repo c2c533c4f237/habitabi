@@ -2,6 +2,8 @@ class HabitsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_action :set_habit, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /habits
   # GET /habits.json
   def index
@@ -71,7 +73,7 @@ class HabitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_habit
-      @habit = Habit.friendly.find(params[:id], conditions: ["user_id = ?", current_user])
+      @habit = Habit.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
