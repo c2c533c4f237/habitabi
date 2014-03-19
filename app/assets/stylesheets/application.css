@@ -11,8 +11,10 @@
  *= require_self
  *= require select2
  *= require select2-bootstrap
+ *= require bootstrap_and_overrides
  *= require_tree .
  */
+
 
 @font-face {
   font-family: 'Glyphicons Halflings';
