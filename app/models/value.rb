@@ -4,8 +4,4 @@ class Value < ActiveRecord::Base
 
 	validates :name, presence: true
 
-	validates_associated :habits
-	validates_associated :actions
-
-	validates_uniqueness_of :name, :case_sensitive => false
 end

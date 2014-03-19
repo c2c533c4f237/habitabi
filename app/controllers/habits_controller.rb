@@ -32,8 +32,6 @@ class HabitsController < ApplicationController
   # POST /habits.json
   def create
     @habit = Habit.new(habit_params)
-    @action = @habit.create_action(habit_params[:action_attributes])
-    @value = @habit.create_value(habit_params[:value_attributes])
 
     respond_to do |format|
       if @habit.save

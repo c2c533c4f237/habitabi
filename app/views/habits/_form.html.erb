@@ -19,15 +19,10 @@
   </div>
   <div class="field">
   <%= f.fields_for :action do |t| %>
-       <%= t.text_field :name %>
-   <% end %>
-     <%= f.fields_for :value do |t| %>
-       <%= t.text_field :name %>
-   <% end %>
-  </div>
-  <div class="field">
-  <% f.fields_for :value do |val_f| %>
-    value : <%= val_f.text_field :name %>
+      <%= t.text_field :name %>
+  <% end %>
+  <%= f.fields_for :value do |t| %>
+      <%= t.text_field :name %>
   <% end %>
   </div>
   <div class="field">
