@@ -4,7 +4,7 @@ class ValuesController < ApplicationController
   # GET /values
   # GET /values.json
   def index
-    @values = Value.all
+    @values = Value.by_user(current_user)
   end
 
   # GET /values/1

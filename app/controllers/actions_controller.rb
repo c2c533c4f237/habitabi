@@ -5,7 +5,7 @@ class ActionsController < ApplicationController
   # GET /actions
   # GET /actions.json
   def index
-    @actions = Action.all
+    @actions = Action.by_user(current_user)
   end
 
   # GET /actions/1
