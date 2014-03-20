@@ -1,0 +1,27 @@
+<h1>Listing actions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actions.each do |action| %>
+    <td><%= action.name %></td>
+    <td>
+     <% action.habits.each do |habit| %>
+       <small><%= habit.value.name %></small>
+     <% end %>
+   </td>
+   <tr>
+    <td><%= link_to 'Show', action %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br>

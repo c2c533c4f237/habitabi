@@ -46,46 +46,50 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Habitabi</a>
+          <a class="brand" href="<%= welcome_index_path %>">Habitabi</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Habits", habits_path  %></li>
+              <li><%= link_to "Actions", actions_path  %></li>
+              <li><%= link_to "Values", values_path  %></li>
+              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+              <li>  Signed in as <%= current_user.email %>. </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+
+              <li class="nav-header">Options</li>
+              <li><%= link_to "Habits", habits_path  %></li>
+              <li><%= link_to "Actions", actions_path  %></li>
+              <li><%= link_to "Values", values_path  %></li>
+              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+               
+         <% if user_signed_in? %>
+            <li><%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
+         <% else %>
+            <li>  <%= link_to "Sign up", new_user_registration_path %> </li>
+            <li> <%= link_to "Sign in", new_user_session_path %> </li>
+            <li> <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+         <% end %>
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
-         <% if user_signed_in? %>
-            Signed in as <%= current_user.email %>. Not you?
-            <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
-         <% else %>
-            <%= link_to "Sign up", new_user_registration_path %> or
-            <%= link_to "Sign in", new_user_session_path %>
-            <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
-         <% end %>
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Stacia 2014</p>
       </footer>
 
     </div> <!-- /container -->

@@ -3,14 +3,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Type</th>
       <th>Action</th>
       <th>Value</th>
-      <th>Count</th>
-      <th>Measurement</th>
-      <th>Measurement type</th>
-      <th>Quantity</th>
-      <th>Quantity type</th>
       <th>Tags</th>
       <th>Description</th>
       <th>Time</th>
@@ -23,14 +17,8 @@
   <tbody>
     <% @habits.each do |habit| %>
       <tr>
-        <td><%= habit.habit_type %></td>
         <td><%= action_name habit %></td>
         <td><%= value_name habit %></td>
-        <td><%= habit.count %></td>
-        <td><%= habit.measurement %></td>
-        <td><%= habit.measurement_type %></td>
-        <td><%= habit.quantity %></td>
-        <td><%= habit.quantity_type %></td>
         <td><%= habit.tags %></td>
         <td><%= habit.description %></td>
         <td><%= habit.time %></td>

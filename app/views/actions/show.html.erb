@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name</strong>
+  <%= @action.name %>
+     <% @action.habits.each do |habit| %>
+       <small><%= habit.value.name %></small>
+    <% end %>
+</p>
+
+<%= link_to 'Back', actions_path %>
