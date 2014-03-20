@@ -9,5 +9,8 @@ class Value < ActiveRecord::Base
     def self.by_user id
 		where(user_id: id)
     end
+
+    extend FriendlyId
+    friendly_id :name, use: :slugged
 	
 end

@@ -10,5 +10,7 @@ class Action < ActiveRecord::Base
 		where(user_id: id)
     end
 	
+    extend FriendlyId
+    friendly_id :name, use: :slugged
 
 end
