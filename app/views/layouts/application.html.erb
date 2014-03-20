@@ -53,7 +53,7 @@
               <li><%= link_to "Actions", actions_path  %></li>
               <li><%= link_to "Values", values_path  %></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-              <li>  Signed in as <%= current_user.email %>. </li>
+              <% if user_signed_in? %> <li>  Signed in as <%= current_user.email %>. </li> <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
