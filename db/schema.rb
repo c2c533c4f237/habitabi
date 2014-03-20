@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319212700) do
+ActiveRecord::Schema.define(version: 20140320031151) do
 
   create_table "actions", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "slug"
   end
+
+  add_index "actions", ["slug"], name: "index_actions_on_slug", unique: true
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -79,6 +82,9 @@ ActiveRecord::Schema.define(version: 20140319212700) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "slug"
   end
+
+  add_index "values", ["slug"], name: "index_values_on_slug", unique: true
 
 end
