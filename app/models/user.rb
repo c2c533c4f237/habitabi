@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :values
 
   def self.by_twitter_id id
-    where(uid: id)
+    where(uid: id.to_s)
   end
 
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
