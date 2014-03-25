@@ -11,10 +11,10 @@
 
   <tbody>
    <% @values.each do |value| %>
-   <td><%=  value.name %></td>
+   <td><%= value.name %></td>
    <td>
-     <% value.habits.each do |habit| %>
-       <small><%= habit.action.name %></small>
+     <% value.actions.each do |action| %>
+       <small><%= action.name %></small>
      <% end %>
    </td>
    <tr>

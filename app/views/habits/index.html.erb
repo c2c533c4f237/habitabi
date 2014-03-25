@@ -18,7 +18,7 @@
     <% @habits.each do |habit| %>
       <tr>
         <td><%= action_name habit %></td>
-        <td><%= value_name habit %></td>
+        <td><%= value_name habit if habit.value %></td>
         <td><%= habit.tags %></td>
         <td><%= habit.description %></td>
         <td><%= habit.time %></td>

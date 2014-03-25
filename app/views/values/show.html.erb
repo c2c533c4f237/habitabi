@@ -3,8 +3,8 @@
 <p>
   <strong>Name</strong>
   <%= @value.name %>
-      <% @value.habits.each do |habit| %>
-       <small><%= habit.action.name %></small>
+      <% @value.actions.each do |action| %>
+       <small><%= action.name %></small>
     <% end %>
 </p>
 
