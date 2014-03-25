@@ -40,6 +40,15 @@ class Habit < ActiveRecord::Base
 	def self.by_user id
 		where(user_id: id)
     end
+
+    #Takes in a string and attemps to turn it into a habit.
+    def self.parse_habit_text(text)
+
+    	habit_parse_regex = /(\w+)(?:\s+(\d+(?:\s+))?(?:(\d+)([a-zA-Z]+)(?:\s+)?)?([\w\s]+)*)?/
+        
+        return HabitText.new(*text.scan(habit_parse_regex).flatten)
+     
+    end
 	
 	validates :habit_type, presence: true
 	validates :habit_type, inclusion: { in: 0..4 }
@@ -65,4 +74,19 @@ class Habit < ActiveRecord::Base
 	end
 	
 	
+end
+
+class HabitText
+	attr_accessor :action_name, :count, :quantity, :quantity_type, :value_name, :measurement, :measurement_type, :habit_type
+	def initialize(action_name, count, num, num_type, value_name)
+		@action_name = action_name
+		@count = count
+		@quantity = num
+		@quantity_type = num
+		@value_name = value_name
+	end
+
+	def action_only?
+     @action_name and !(@count and @quantity and @quantity_type and @value_name)
+	end
 end
