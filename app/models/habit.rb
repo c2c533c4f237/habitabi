@@ -4,7 +4,8 @@ class Habit < ActiveRecord::Base
 
     def slug_candidates
     	[
-    		[self.action.name, self.value.name]
+
+    		value ? [action.name, value.name] : action.name 
     		#add more once I figure things out.
     	]
     end
@@ -13,9 +14,9 @@ class Habit < ActiveRecord::Base
 	belongs_to :value
 	belongs_to :action
 
-	accepts_nested_attributes_for :value , :reject_if => :check_value
+	accepts_nested_attributes_for :value 
 
-	accepts_nested_attributes_for :action, :reject_if => :check_action
+	accepts_nested_attributes_for :action
 
 	def self.categoricals
 		where(habit_type: 0)
@@ -43,26 +44,5 @@ class Habit < ActiveRecord::Base
 	
 	validates :habit_type, presence: true
 	validates :habit_type, inclusion: { in: 0..4 }
-
-	protected
-
-	def check_action(action_attr)
-		if _action = Action.where("name = '#{action_attr[:name]}' AND user_id = #{action_attr[:user_id]}").first
-			self.action = _action
-			self.action_id = _action.id
-			return true
-		end
-		return false
-	end
-
-	def check_value(value_attr)
-		if _value = Value.where("name = '#{value_attr[:name]}' AND user_id = #{value_attr[:user_id]}").first
-			self.value = _value
-			self.value_id = _value.id
-			return true
-		end
-		return false
-	end
-	
 	
 end

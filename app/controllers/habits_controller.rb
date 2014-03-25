@@ -36,7 +36,7 @@ class HabitsController < ApplicationController
     @habit = Habit.new(habit_params)
 
     respond_to do |format|
-      if @habit.save
+      if HabitFactory.save_habit(@habit)
         format.html { redirect_to @habit, notice: 'Habit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @habit }
       else
