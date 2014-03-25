@@ -1,5 +1,5 @@
 class Habit < ActiveRecord::Base
-	extend FriendlyId
+    extend FriendlyId
     friendly_id :slug_candidates, use: :slugged
 
     def slug_candidates
@@ -44,5 +44,6 @@ class Habit < ActiveRecord::Base
 	
 	validates :habit_type, presence: true
 	validates :habit_type, inclusion: { in: 0..4 }
+
 	
 end

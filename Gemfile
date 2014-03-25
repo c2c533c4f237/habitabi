@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+
 gem 'rails', '4.0.2'
 
 gem 'devise'
@@ -13,6 +15,8 @@ gem 'friendly_id', '~> 5.0.0'
 
 gem "cancan"
 
+gem "tweetstream"
+
 group :production do
   gem 'pg'
 end
@@ -23,6 +27,10 @@ group :test, :development do
   gem 'sqlite3'
 end
 
+group :development do
+	gem "pry-rails"
+
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
