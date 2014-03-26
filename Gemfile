@@ -19,14 +19,12 @@ gem "tweetstream"
 
 gem "chronic"
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara-rails'
-  gem 'sqlite3'
+
 end
 
 group :development do
