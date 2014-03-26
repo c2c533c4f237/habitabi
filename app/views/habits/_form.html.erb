@@ -123,7 +123,7 @@ $(document).ready(function() {
   </div>
   <div class="field">
     <%= f.label :time %><br>
-    <%= f.date_select :time %>
+    <%= f.datetime_select :time, ampm: true %>
   </div>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">

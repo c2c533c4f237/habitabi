@@ -8,7 +8,7 @@ class HabitFactory
 				habit.value = _value
 			end
 		end
-		habit.time = Time.now if habit.time.nil?
+		habit.time = Time.zone.now if habit.time.nil?
 		#assign habit's user ID to action/values here, if none given, for
 		#api/twitter creation.
 		habit.action.user_id = habit.user_id if habit.action.user_id.nil?
@@ -23,7 +23,8 @@ class HabitFactory
 						  quantity: habit_text.quantity, 
 						  quantity_type: habit_text.quantity_type, 
 						  measurement: habit_text.measurement,
-						   measurement_type: habit_text.measurement_type)
+						  measurement_type: habit_text.measurement_type,
+						  time: habit_text.time)
 		habit.build_action(name: habit_text.action_name)
 	    habit.build_value(name: habit_text.value_name) if habit_text.value_name
 	    return habit

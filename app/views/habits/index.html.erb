@@ -21,7 +21,7 @@
         <td><%= value_name habit if habit.value %></td>
         <td><%= habit.tags %></td>
         <td><%= habit.description %></td>
-        <td><%= habit.time %></td>
+        <td><%= habit.time.to_s :readable %></td>
         <td><%= link_to 'Show', habit %></td>
         <td><%= link_to 'Edit', edit_habit_path(habit) %></td>
         <td><%= link_to 'Destroy', habit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -17,6 +17,8 @@ gem "cancan"
 
 gem "tweetstream"
 
+gem "chronic"
+
 group :production do
   gem 'pg'
 end

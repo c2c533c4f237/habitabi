@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:readable] = '%b %d %Y at %I:%M%p'

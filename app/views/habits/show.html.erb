@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @habit.habit_type %>
-</p>
-
-<p>
   <strong>Action:</strong>
   <%= action_name @habit %>
 </p>
@@ -13,31 +8,6 @@
 <p>
   <strong>Value:</strong>
   <%= value_name @habit if @habit.value %>
-</p>
-
-<p>
-  <strong>Count:</strong>
-  <%= @habit.count %>
-</p>
-
-<p>
-  <strong>Measurement:</strong>
-  <%= @habit.measurement %>
-</p>
-
-<p>
-  <strong>Measurement type:</strong>
-  <%= @habit.measurement_type %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @habit.quantity %>
-</p>
-
-<p>
-  <strong>Quantity type:</strong>
-  <%= @habit.quantity_type %>
 </p>
 
 <p>
@@ -52,7 +22,7 @@
 
 <p>
   <strong>Time:</strong>
-  <%= @habit.time %>
+  <%= @habit.time.to_s :readable %>
 </p>
 
 <%= link_to 'Edit', edit_habit_path(@habit) %> |

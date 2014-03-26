@@ -48,6 +48,7 @@ GEM
       capybara-console
       database_cleaner
       exception_notification
+    chronic (0.10.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -246,6 +247,7 @@ PLATFORMS
 DEPENDENCIES
   cancan
   capybara-rails
+  chronic
   coffee-rails (~> 4.0.0)
   devise
   friendly_id (~> 5.0.0)
