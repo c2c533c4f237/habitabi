@@ -4,7 +4,8 @@
 $(document).ready(function() {  
   $('.inselect2').each(function() {
     var url = $(this).data('url'); 
-    var placeholder = $(this).data('placeholder'); 
+    var placeholder = $(this).data('placeholder');
+
     $(this).select2({
       width: '200px',
       minimumInputLength: 0,
@@ -36,12 +37,6 @@ $(document).ready(function() {
         return item.name; 
       },
 
-      initSelection : function (element, callback) {
-        if (saved) {
-          callback(saved);
-        }
-      },
-      
       createSearchChoice:function(term, data) {
              if ( $(data).filter( function() {
                return this.name.localeCompare(term)===0;
@@ -55,7 +50,6 @@ $(document).ready(function() {
 });
 
 <% end %>
-
 
 <%= form_for(@habit) do |f| %>
   <% if @habit.errors.any? %>
