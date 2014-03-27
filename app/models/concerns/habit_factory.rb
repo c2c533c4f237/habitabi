@@ -8,16 +8,13 @@ class HabitFactory
 			if _value = Value.where("name = '#{habit.value.name}' AND user_id = #{habit.user_id}").first
 				habit.value = _value
 			end
-			#habit.value = nil if habit.value.name = ""
+			habit.value = nil if habit.value.name.blank?
 		end
 		habit.time = Time.zone.now if habit.time.nil?
 		#assign habit's user ID to action/values here, if none given, for
 		#api/twitter creation.
 		habit.action.user_id = habit.user_id if habit.action.user_id.nil?
 		habit.value.user_id = habit.user_id if habit.value and habit.value.user_id.nil?
-		
-		p "fooo"
-		p guess_habit_type(habit)
 
 		habit.habit_type = guess_habit_type(habit) if habit.habit_type.nil?
 
@@ -56,7 +53,7 @@ class HabitFactory
 	end
 
 	def self.action_only habit
-		habit.action.present? and habit.count.nil? and habit.quantity.nil? and habit.quantity_type.nil? and habit.value.nil?
+		habit.action.present? and habit.count.blank? and habit.quantity.blank? and habit.quantity_type.blank? and habit.value.blank?
 	end
 
 	def self.action_and_value_only habit
@@ -64,15 +61,15 @@ class HabitFactory
 	end
 
 	def self.action_and_value_and_count habit
-		habit.action.present? and habit.value.present? and habit.count.present? and habit.quantity.nil? and habit.quantity_type.nil?
+		habit.action.present? and habit.value.present? and habit.count.present? and habit.quantity.blank? and habit.quantity_type.blank?
 	end
 
 	def self.action_and_value_and_measurement habit
-		habit.action.present? and habit.value.nil? and habit.quantity.present?
+		habit.action.present? and habit.value.blank? and habit.quantity.present?
 	end
 
 	def self.action_and_number_and_no_value habit
-		habit.action.present? and habit.value.nil? and habit.count.present? and habit.quantity.nil? and habit.quantity_type.nil?
+		habit.action.present? and habit.value.blank? and habit.count.present? and habit.quantity.blank? and habit.quantity_type.blank?
 	end
 
 	def self.action_and_value_and_quantity habit
