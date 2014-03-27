@@ -1,3 +1,8 @@
+
+<% content_for(:head) do %>
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -7,5 +12,11 @@
        <small><%= value.name  %></small>
     <% end %>
 </p>
+
+<%  if !(@action.habits.where(habit_type: 3).empty?) %>
+<%= line_chart @action.habits.pluck(:time, :count), discrete: true %>
+<% else %>
+<%= pie_chart @action.values.group(:name).count %>
+<% end %>
 
 <%= link_to 'Back', actions_path %>

@@ -1,3 +1,8 @@
+<% content_for(:head) do %>
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+<% end %>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -7,5 +12,7 @@
        <small><%= action.name %></small>
     <% end %>
 </p>
+
+<%= pie_chart @value.actions.group(:name).count %>
 
 <%= link_to 'Back', values_path %>

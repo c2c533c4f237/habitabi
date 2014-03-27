@@ -17,7 +17,9 @@ gem "cancan"
 
 gem "tweetstream"
 
+gem 'groupdate'
 gem "chronic"
+gem "chartkick"
 
 gem 'pg'
 
@@ -29,6 +31,7 @@ end
 
 group :development do
 	gem "pry-rails"
+	gem 'quiet_assets'
 
 end
 # Use SCSS for stylesheets

@@ -48,6 +48,7 @@ GEM
       capybara-console
       database_cleaner
       exception_notification
+    chartkick (1.2.4)
     chronic (0.10.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -92,6 +93,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     friendly_id (5.0.3)
       activerecord (>= 4.0.0)
+    groupdate (2.1.0)
+      activerecord (>= 3.0.0)
     hashie (2.0.5)
     hike (1.2.3)
     http (0.5.0)
@@ -144,6 +147,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -246,10 +251,12 @@ PLATFORMS
 DEPENDENCIES
   cancan
   capybara-rails
+  chartkick
   chronic
   coffee-rails (~> 4.0.0)
   devise
   friendly_id (~> 5.0.0)
+  groupdate
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
@@ -257,6 +264,7 @@ DEPENDENCIES
   omniauth-twitter
   pg
   pry-rails
+  quiet_assets
   rails (= 4.0.2)
   rspec-rails
   sass-rails (~> 4.0.0)
