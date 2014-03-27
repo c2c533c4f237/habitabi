@@ -65,10 +65,6 @@ $(document).ready(function() {
   <% end %>
 
   <div class="field">
-    <%= f.label :habit_type %><br>
-    <%= f.number_field :habit_type %>
-  </div>
-  <div class="field">
   <%= f.fields_for :action do |t| %>
       <%= t.text_field :name,      
       data: { 
@@ -77,6 +73,10 @@ $(document).ready(function() {
       }, class: "inselect2"  %>
       <%= t.hidden_field :user_id, value: current_user.id %>
   <% end %>
+
+  <%= f.text_field :count, class: "input-mini" %>
+  <%= f.text_field :quantity, class: "input-mini" %>
+  <%= f.text_field :quantity_type, class: "input-mini" %>
   <%= f.fields_for :value do |t| %>
       <%= t.text_field :name, 
      data: { 
@@ -87,26 +87,7 @@ $(document).ready(function() {
       <%= t.hidden_field :user_id, value: current_user.id %>
   <% end %>
   </div>
-  <div class="field">
-    <%= f.label :count %><br>
-    <%= f.text_field :count %>
-  </div>
-  <div class="field">
-    <%= f.label :measurement %><br>
-    <%= f.text_field :measurement %>
-  </div>
-  <div class="field">
-    <%= f.label :measurement_type %><br>
-    <%= f.text_field :measurement_type %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.text_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity_type %><br>
-    <%= f.text_field :quantity_type %>
-  </div>
+
   <div class="field">
     <%= f.label :tags %><br>
     <%= f.text_field :tags %>
