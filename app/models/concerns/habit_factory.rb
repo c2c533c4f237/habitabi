@@ -7,6 +7,7 @@ class HabitFactory
 			if _value = Value.where("name = '#{habit.value.name}' AND user_id = #{habit.user_id}").first
 				habit.value = _value
 			end
+			habit.value = nil if habit.value.name = ""
 		end
 		habit.time = Time.zone.now if habit.time.nil?
 		#assign habit's user ID to action/values here, if none given, for
